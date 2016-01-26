@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Food Truck Locator</title>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/client/javascripts/app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
+</head>
+<body>
+    <h1>Find the food trucks you want near you!</h1>
+    <div>
+        Please enter your location: 
+        <br>
+        <input type='text' ng-model='address' />
+        <br>
+        {{ address }}
+        <br>
+        <button ng-click="submit()" type="submit" class="button button-royal button-block">Submit</button>
+    </div>
+<!--     <div ui-view></div>
+    <a ui-sref='home'>HOME</a>
+    <a ui-sref='map'>MAP</a> -->
+</body>
+</html>
