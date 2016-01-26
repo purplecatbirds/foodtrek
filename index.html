@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="foodTruck" ng-controller='getMapCoords'>
 <head>
     <title>Food Truck Locator</title>
     <script src="/bower_components/angular/angular.min.js"></script>
@@ -18,6 +18,17 @@
         <br>
         <button ng-click="submit()" type="submit" class="button button-royal button-block">Submit</button>
     </div>
+    <script>
+    angular.module('foodTruck')
+    .controller('getMapCoords', ['$http', function($http){
+        // this factory will make a get request to the API and get
+        // an array of lat and long of the food trucks?
+        $http.get('https://data.sfgov.org/resource/rqzj-sfat.json')
+            .success(function(response) {
+                console.log(response);
+            });
+    }]);
+    </script>
 <!--     <div ui-view></div>
     <a ui-sref='home'>HOME</a>
     <a ui-sref='map'>MAP</a> -->
