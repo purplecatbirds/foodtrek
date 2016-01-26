@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="foodTruck" ng-controller='getMapCoords'>
+<html ng-app="foodTruck" ng-controller='foodTruckCoordsCtrl as coordsCtrl'>
 <head>
     <title>Food Truck Locator</title>
     <script src="/bower_components/angular/angular.min.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="/client/javascripts/app.js"></script>
+    <script src="/client/javascripts/factories.js"></script>
+    <script src="/client/javascripts/controllers.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
 </head>
 <body>
@@ -18,14 +20,16 @@
         <br>
         <button ng-click="submit()" type="submit" class="button button-royal button-block">Submit</button>
     </div>
+
     <script>
+    // TESTING SCRIPT just to look at the data
     angular.module('foodTruck')
-    .controller('getMapCoords', ['$http', function($http){
-        // this factory will make a get request to the API and get
-        // an array of lat and long of the food trucks?
+    .controller('foodTruckCoordsCtrl', ['$http', function($http){
         $http.get('https://data.sfgov.org/resource/rqzj-sfat.json')
-            .success(function(response) {
-                console.log(response);
+            .success(function(data) {
+                console.log(data);
+                console.log('LAT: ' + data[1]['location']['latitude']);
+                console.log('LONG: ' + data[1]['location']['longitude']);
             });
     }]);
     </script>
