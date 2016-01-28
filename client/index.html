@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="foodTruck" ng-controller='foodTruckCoordsCtrl as coordsCtrl'>
+<head>
+    <title>Food Truck Locator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
+</head>
+<body>
+    <h1>Find the food trucks you want near you!</h1>
+    <div>
+        Please enter your location: 
+        <br>
+        <input type='text' ng-model='address' />
+        <br>
+        {{ address }}
+        <br>
+        <button ng-click="submit()" type="submit" class="button button-royal button-block">Submit</button>
+    </div>
+
+
+<!--     <div ui-view></div>
+    <a ui-sref='home'>HOME</a>
+    <a ui-sref='map'>MAP</a> -->
+
+    <script src="lib/bower_components/angular/angular.min.js"></script>
+    <script src="lib/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="javascripts/app.js"></script>
+    <script src="javascripts/factories.js"></script>
+    <script src="javascripts/controllers.js"></script>
+    <script>
+    // TESTING SCRIPT just to look at the data
+    angular.module('foodTruck')
+    .controller('foodTruckCoordsCtrl', ['$http', function($http){
+        $http.get('https://data.sfgov.org/resource/rqzj-sfat.json')
+            .success(function(data) {
+                console.log(data);
+                console.log('LAT: ' + data[1]['location']['latitude']);
+                console.log('LONG: ' + data[1]['location']['longitude']);
+            });
+    }]);
+    </script>
+</body>
+</html>
