@@ -1,0 +1,21 @@
+{
+  "name": "foodtruckfinder",
+  "homepage": "https://github.com/purplecatbirds/foodtruckfinder",
+  "authors": [
+    "Kevin Cheng <09chengk@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.9"
+  }
+}
