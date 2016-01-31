@@ -7,5 +7,5 @@ angular.module('foodTruck')
             return $http.get('https://data.sfgov.org/resource/rqzj-sfat.json')
                 };
                 return truckInfo;
-            };
+            }
         ]);

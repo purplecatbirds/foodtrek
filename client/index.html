@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="foodTruck" ng-controller='foodTruckCoordsCtrl as coordsCtrl'>
+<html ng-app="foodTruck" ng-controller='foodTruckCoordsCtrl'>
 <head>
     <title>Food Truck Locator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
 </head>
 <body>
     <h1>Find the food trucks you want near you!</h1>
-    <div>
+    <div ng-controller='coordsCtrl as coordsCtrl'>
         Please enter your location: 
         <br>
         <input type='text' ng-model='address' />
@@ -26,17 +26,26 @@
     <script src="javascripts/app.js"></script>
     <script src="javascripts/factories.js"></script>
     <script src="javascripts/controllers.js"></script>
+
     <script>
     // TESTING SCRIPT just to look at the data
     angular.module('foodTruck')
     .controller('foodTruckCoordsCtrl', ['$http', function($http){
+        var arr = [];
         $http.get('https://data.sfgov.org/resource/rqzj-sfat.json')
             .success(function(data) {
                 console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i]['location']) {
+                        arr.push([data[i]['location']['latitude'], data[i]['location']['longitude']])
+                    }
+                }
+                console.log(arr)
                 console.log('LAT: ' + data[1]['location']['latitude']);
                 console.log('LONG: ' + data[1]['location']['longitude']);
             });
     }]);
     </script>
+
 </body>
 </html>
