@@ -7,11 +7,13 @@
     <style>
       html, body {
         height: 100%;
-        margin: 0;
+        margin: 2%;
         padding: 0;
       }
       #map {
-        height: 100%;
+        height: 80%;
+        width: 80%;
+        float: right;
       }
     </style>
   </head>
@@ -21,8 +23,8 @@
       var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 37.7941, lng: -122.4024},
-          zoom: 8
+          center: {lat: 37.7241, lng: -122.4024},
+          zoom: 12
         });
       }
     </script>

@@ -16,9 +16,13 @@ angular.module('foodTruck')
                     console.log(longAndLats);
                 })
             }
-
+            
+        //should this be in a factory?
         $scope.submit = function(address) {
-            console.log(address)
+            // need to send this address to google API that will turn it into long and
+            var saveAddress = address;
+            console.log(saveAddress)
         }
         init();
     }])
+

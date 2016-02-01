@@ -8,4 +8,9 @@ angular.module('foodTruck')
                 };
                 return truckInfo;
             }
-        ]);
+        ])
+    .factory('InputAddress', ['', function(){
+        return function name(){
+            
+        };
+    }])
