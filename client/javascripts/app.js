@@ -6,7 +6,7 @@ angular.module('foodTruck', ['ui.router'])
             $stateProvider
                 .state('home', {
                     url: '/',
-                    templateUrl: 'index.html'
-                });
+                    templateUrl: '../views/home.html'
+                })
             $urlRouterProvider.otherwise('home');
         }]);
