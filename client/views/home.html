@@ -1,11 +1,11 @@
-<div ng-controller='coordsCtrl as coordsCtrl'>
+<div ng-controller='coordsCtrl'>
     Please enter your location: 
     <br>
     <input type='text' ng-model='address' />
     <br>
     {{ address }}
     <br>
-    <button ng-click="submit()" type="submit" class="button button-royal button-block">Submit</button>
+    <button ng-click="submit(address)" type="submit" class="button button-royal button-block">Submit</button>
 </div>
 
     <script>
