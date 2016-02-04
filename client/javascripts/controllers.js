@@ -18,10 +18,21 @@ angular.module('foodTruck')
             }
 
         //should this be in a factory?
-        $scope.submit = function(address) {
+        vm.submit = function() {
             // need to send this address to google API that will turn it into long and
             var saveAddress = address;
             console.log(saveAddress)
         }
         init();
     }])
+
+    // need to put in a controller to push the longs and lats that were stored in the init fn
+    .controller('mapCoordCtrl', ['FoodTruckCoord', function(FoodTruckCoord){
+        for (var i = 0; i < longAndLats.length; i++) {
+            
+        }
+    }])
+
+
+
+
