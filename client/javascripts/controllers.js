@@ -28,7 +28,9 @@ angular.module('foodTruck')
 
     // need to put in a controller to push the longs and lats that were stored in the init fn
     .controller('mapCoordCtrl', ['FoodTruckCoord', function(FoodTruckCoord){
-        
+        for (var i = 0; i < longAndLats.length; i++) {
+            
+        }
     }])
 
 
