@@ -3,7 +3,7 @@ angular.module('foodTruck')
 
   coordsCtrl.$inject = ['FoodTruckCoords'];
   function coordsCtrl (FoodTruckCoords) {
-    vm = this;
+    var vm = this;
     var longAndLats = [];
   // gets truck info using function from factory
     function init() {
