@@ -2,12 +2,33 @@
 <html ng-app="foodTruck">
 <head>
     <title>Food Truck Locator</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArBot-4DSCHC1GUKQ2UjSJycY8TVeG72M&signed_in=true&callback=initMap"
+        async defer>
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta charset="utf-8">
+        <style>
+          html, body {
+            height: 80%;
+            margin: 2%;
+            padding: 0;
+          }
+          #map {
+            height: 80%;
+            width: 80%;
+            float: right;
+          }
+        </style>
 </head>
 <body>
 
     <h1>Find the food trucks you want near you!</h1>
-    <div ng-controller='coordsCtrl as coordsCtrl'>
+
+<div class='row'>
+
+    <div ng-controller='coordsCtrl as coordsCtrl' class='col-sm-6'>
         Please enter your location: 
         <br>
         <input type='text' ng-model='coordsCtrl.address' />
@@ -17,6 +38,29 @@
         <button ng-click="submit(address)" type="submit" class="button button-royal button-block">Submit</button>
     </div>
 
+    <div id="map" style='height:300px;margin-top:-1000px' class='col-sm-6 map-body'></div>
+        <script>
+        $(function(){
+          var mapOptions = {
+            zoom: 13,
+            center: new google.maps.LatLng({lat: 37.7241, lng: -122.4024}),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          }
+          var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+          setTimeout(function() {
+            $('.map-body').append('#map').css('margin-top', '0px').get(0);
+          }, 500)
+      })
+
+          // function initMap() {
+          //   map = new google.maps.Map(document.getElementById('map'), {
+          //     center: {lat: 37.7241, lng: -122.4024},
+          //     zoom: 12
+          //   });
+          // }
+        </script>
+
+</div>
 
 <!--     <div ui-view></div>
     <a ui-sref='home'>HOME</a>
@@ -27,9 +71,6 @@
     <script src="javascripts/app.js"></script>
     <script src="javascripts/factories.js"></script>
     <script src="javascripts/controllers.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArBot-4DSCHC1GUKQ2UjSJycY8TVeG72M&signed_in=true&callback=initMap"
-        async defer>
-    </script>
 <!--
     <script>
     // TESTING SCRIPT just to look at the data
