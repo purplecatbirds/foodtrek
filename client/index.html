@@ -2,8 +2,7 @@
 <html ng-app="foodTruck">
 <head>
     <title>Food Truck Locator</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArBot-4DSCHC1GUKQ2UjSJycY8TVeG72M&signed_in=true&callback=initMap"
-        async defer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArBot-4DSCHC1GUKQ2UjSJycY8TVeG72M&signed_in=true&callback=initMap">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -42,8 +41,8 @@
         <script>
         $(function(){
           var mapOptions = {
-            zoom: 13,
-            center: new google.maps.LatLng({lat: 37.7241, lng: -122.4024}),
+            zoom: 12,
+            center: new google.maps.LatLng({lat: 37.7741, lng: -122.4312}),
             mapTypeId: google.maps.MapTypeId.ROADMAP
           }
           var map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -51,7 +50,6 @@
             $('.map-body').append('#map').css('margin-top', '0px').get(0);
           }, 500)
       })
-
           // function initMap() {
           //   map = new google.maps.Map(document.getElementById('map'), {
           //     center: {lat: 37.7241, lng: -122.4024},
