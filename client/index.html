@@ -37,19 +37,9 @@
         <button ng-click="submit(address)" type="submit" class="button button-royal button-block">Submit</button>
     </div>
 
-    <div id="map" style='height:300px;margin-top:-1000px' class='col-sm-6 map-body'></div>
+    <div id="map" style='height:400px;margin-top:-1000px' class='col-sm-6 map-body'></div>
+    
         <script>
-        $(function(){
-          var mapOptions = {
-            zoom: 12,
-            center: new google.maps.LatLng({lat: 37.7741, lng: -122.4312}),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          }
-          var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-          setTimeout(function() {
-            $('.map-body').append('#map').css('margin-top', '0px').get(0);
-          }, 500)
-      })
           // function initMap() {
           //   map = new google.maps.Map(document.getElementById('map'), {
           //     center: {lat: 37.7241, lng: -122.4024},
@@ -69,6 +59,8 @@
     <script src="javascripts/app.js"></script>
     <script src="javascripts/factories.js"></script>
     <script src="javascripts/controllers.js"></script>
+    <script src="javascripts/map.js"></script>
+
 <!--
     <script>
     // TESTING SCRIPT just to look at the data
