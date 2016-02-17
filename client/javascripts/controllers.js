@@ -6,7 +6,10 @@ angular.module('foodTruck')
     var vm = this;
     var longAndLats = [];
     vm.address = {
-        zipCode: ''
+        'addressLine': '',
+        'city': '',
+        'state': '',
+        'zipCode': ''
     };
   // gets truck info using function from factory
     function init() {
@@ -26,8 +29,13 @@ angular.module('foodTruck')
         //should this be in a factory?
     vm.submit = function() {
         // need to send this address to google API that will turn it into long and
-        console.log(vm.address.zipCode);
+        var fullAddress = vm.address.addressLine + ', ' + vm.address.city + ' ' + vm.address.state + ', ' + vm.address.zipCode;
         
+        console.log(fullAddress);
+        console.log(vm.address);
+        vm.address.addressLine = '';
+        vm.address.city = '';
+        vm.address.state = '';
         vm.address.zipCode = '';
     }
     init();

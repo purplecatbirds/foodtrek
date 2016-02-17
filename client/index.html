@@ -29,11 +29,19 @@
 
 <form name='userAddressForm'>
     <div ng-controller='coordsCtrl as coordsCtrl' class='col-sm-6'>
-        Please enter your zipcode: 
+    <tr>
+        Address Line1: 
+        <input type='text' ng-model='coordsCtrl.address.addressLine' />
+        {{ coordsCtrl.address.addressLine }}
         <br>
-        <input type='number' ng-model='coordsCtrl.address.zipCode' />
+        City:
+        <input type='text' ng-model='coordsCtrl.address.city'>
         <br>
-        {{ coordsCtrl.address.zipCode }}
+        State:
+        <input type='text' ng-model='coordsCtrl.address.state'>
+        <br>
+        Zipcode:
+        <input type='number' ng-model='coordsCtrl.address.zipCode'>
         <br>
         <button type="submit" class="button button-royal button-block" ng-click="coordsCtrl.submit()">Submit</button>
     </div>
