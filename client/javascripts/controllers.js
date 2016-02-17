@@ -5,6 +5,9 @@ angular.module('foodTruck')
   function coordsCtrl (FoodTruckCoords) {
     var vm = this;
     var longAndLats = [];
+    vm.address = {
+        zipCode: ''
+    };
   // gets truck info using function from factory
     function init() {
       FoodTruckCoords.getFoodTruckInfo()
@@ -21,12 +24,13 @@ angular.module('foodTruck')
     }
 
         //should this be in a factory?
-        vm.submit = function() {
-            // need to send this address to google API that will turn it into long and
-            var saveAddress = address;
-            console.log(saveAddress)
-        }
-        init();
+    vm.submit = function() {
+        // need to send this address to google API that will turn it into long and
+        console.log(vm.address.zipCode);
+        
+        vm.address.zipCode = '';
+    }
+    init();
   }
 
     // need to put in a controller to push the longs and lats that were stored in the init fn

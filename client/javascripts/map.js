@@ -1,4 +1,4 @@
-$(function(){
+$(function initMap(){
   var mapOptions = {
     zoom: 12,
     center: new google.maps.LatLng({lat: 37.7741, lng: -122.4312}),
