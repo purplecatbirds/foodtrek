@@ -5,6 +5,12 @@ angular.module('foodTruck')
   function coordsCtrl (FoodTruckCoords) {
     var vm = this;
     var longAndLats = [];
+    vm.address = {
+        'addressLine': '',
+        'city': '',
+        'state': '',
+        'zipCode': ''
+    };
   // gets truck info using function from factory
     function init() {
       FoodTruckCoords.getFoodTruckInfo()
@@ -15,18 +21,37 @@ angular.module('foodTruck')
               longAndLats.push([data[i]['applicant'], data[i]['location']['latitude'], data[i]['location']['longitude']])
             }
           }
-          console.log(data)
+          console.log(data);
           console.log(longAndLats);
         })
     }
 
         //should this be in a factory?
-        vm.submit = function() {
-            // need to send this address to google API that will turn it into long and
-            var saveAddress = address;
-            console.log(saveAddress)
+    vm.submit = function() {
+        // need to send this address to google API that will turn it into long and
+        var fullAddress = vm.address.addressLine + ', ' + vm.address.city + ' ' + vm.address.state + ', ' + vm.address.zipCode;
+
+        // code to find long and lat based on user address
+        function searchAddress() {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({address: fullAddress}, function(results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    map.setZoom(17)
+                } else {
+                    alert('Something messed up! It was due to: ' + status);
+                }
+            })
+            console.log(results);
         }
-        init();
+        console.log(fullAddress);
+        console.log(vm.address);
+        vm.address.addressLine = '';
+        vm.address.city = '';
+        vm.address.state = '';
+        vm.address.zipCode = '';
+    }
+    init();
   }
 
     // need to put in a controller to push the longs and lats that were stored in the init fn
