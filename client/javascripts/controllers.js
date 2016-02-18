@@ -21,7 +21,7 @@ angular.module('foodTruck')
               longAndLats.push([data[i]['applicant'], data[i]['location']['latitude'], data[i]['location']['longitude']])
             }
           }
-          console.log(data)
+          console.log(data);
           console.log(longAndLats);
         })
     }
@@ -30,7 +30,20 @@ angular.module('foodTruck')
     vm.submit = function() {
         // need to send this address to google API that will turn it into long and
         var fullAddress = vm.address.addressLine + ', ' + vm.address.city + ' ' + vm.address.state + ', ' + vm.address.zipCode;
-        
+
+        // code to find long and lat based on user address
+        function searchAddress() {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({address: fullAddress}, function(results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    map.setZoom(17)
+                } else {
+                    alert('Something messed up! It was due to: ' + status);
+                }
+            })
+            console.log(results);
+        }
         console.log(fullAddress);
         console.log(vm.address);
         vm.address.addressLine = '';
