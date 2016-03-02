@@ -11,6 +11,9 @@ angular.module('foodTruck')
         'state': '',
         'zipCode': ''
     };
+    // NgMap.getMap().then(function(map) {
+    //     console.log(map.getCenter());
+    // })
   // gets truck info using function from factory
     function init() {
       FoodTruckCoords.getFoodTruckInfo()
@@ -33,6 +36,7 @@ angular.module('foodTruck')
 
         // code to find long and lat based on user address
         function searchAddress() {
+            console.log('INSIDE SEARCH ADDRESS!!');
             var geocoder = new google.maps.Geocoder();
             geocoder.geocode({address: fullAddress}, function(results, status) {
                 if (status === google.maps.GeocoderStatus.OK) {
@@ -41,15 +45,17 @@ angular.module('foodTruck')
                 } else {
                     alert('Something messed up! It was due to: ' + status);
                 }
+            console.log('STATUS', status);
+            console.log('RESULTS', results);
             })
-            console.log(results);
         }
-        console.log(fullAddress);
+        console.log('FULL ADDRESS', fullAddress);
         console.log(vm.address);
         vm.address.addressLine = '';
         vm.address.city = '';
         vm.address.state = '';
         vm.address.zipCode = '';
+        searchAddress();
     }
     init();
   }
