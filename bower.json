@@ -2,9 +2,10 @@
   "name": "foodtruckfinder",
   "homepage": "https://github.com/purplecatbirds/foodtruckfinder",
   "authors": [
-    "Kevin Cheng <09chengk@gmail.com>"
+    "Kevin Cheng <09chengk@gmail.com>",
+    "Casandra Silva Zenteno <silva.zenteno@gmail.com"
   ],
-  "description": "",
+  "description": "Uber users in the bay area can search nearby foodtrucks in realtime",
   "main": "",
   "moduleType": [],
   "license": "MIT",
